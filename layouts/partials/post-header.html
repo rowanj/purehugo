@@ -1,0 +1,23 @@
+<header class="post-header">
+	<a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
+
+	<p class="post-meta">
+		{{ with .Params.author }}
+			By <strong class="post-author">{{ . }}</strong>
+		{{ end }}
+		{{ if isset .Params "categories" }}
+			under
+			{{ range .Params.categories }}
+				<a class="post-category post-category-{{ . }}" href='{{ ( printf "categories/%s" . ) | absURL }}'>{{ . }}</a>
+			{{ end }}
+		{{ end }}
+	</p>
+	{{ if isset .Params "tags" }}
+	  <p class="post-meta">
+			Tagged
+			{{ range .Params.tags }}
+				<a class="post-tag post-tag-{{ . }}" href='{{ ( printf "tags/%s" . ) | absURL }}'>{{ . }}</a>
+			{{ end }}
+		</p>
+	{{ end }}
+</header>

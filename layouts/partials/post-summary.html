@@ -1,0 +1,12 @@
+<h1 class="content-subhead">{{ .Date.Format "02 Jan 2006, 15:04" }}</h1>
+<section class="post">
+	{{ partial "post-header.html" . }}
+  <div class="post-description">
+    {{ .Summary }}
+  </div>
+  {{ if .Truncated }}
+  <div class="post-meta">
+    <a href="{{ .Permalink }}">Continue reading…</a>
+  </div>
+  {{ end }}
+</section>
